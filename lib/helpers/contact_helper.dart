@@ -102,19 +102,20 @@ class Contact {
   String phone;
   String image;
 
+  Contact.empty();
   Contact(this.id, this.name, this.email, this.phone, this.image);
 
-  static Contact fromMap(Map map) {
-    return Contact(map[idColumn], map[nameColumn], map[emailColumn],
-        map[phoneColumn], map[imageColumn]);
+  Contact.fromMap(Map map) {
+    Contact(map[idColumn], map[nameColumn], map[emailColumn], map[phoneColumn],
+        map[imageColumn]);
   }
 
   Map toMap() {
     Map<String, dynamic> map = {
-      nameColumn: name,
-      emailColumn: email,
-      phoneColumn: phone,
-      phoneColumn: phone,
+      name: name,
+      email: email,
+      phone: phone,
+      image: image,
     };
     if (id != null) {
       map[idColumn] = id;
